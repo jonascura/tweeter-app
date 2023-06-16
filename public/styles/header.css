@@ -30,3 +30,12 @@ img {
   margin-top: 150px;
   margin-bottom: 30px;
 }
+
+.name {
+  font-family: "Source Sans 3";
+  font-weight: 300;
+}
+
+.name b {
+  font-weight: 600;
+}

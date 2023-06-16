@@ -4,7 +4,6 @@
 }
 
 .wrapper {
-  width: 90%;
   margin: 0 1.5em;
 }
 
@@ -28,10 +27,10 @@ nav {
 
 .new-tweet {
   float: right;
+  margin-top: 40px;
   display:flex;
   flex-direction: column;
   align-content: center;
-  line-height: 70px;
 }
 
 nav a {
@@ -39,6 +38,10 @@ nav a {
   font-size: 20px;
   font-family: "Source Sans 3";
   color: #f4f1ec;
+}
+
+.new-tweet a b {
+  font-weight: 600;
 }
 
 nav a:hover {
