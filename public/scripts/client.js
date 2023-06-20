@@ -5,10 +5,9 @@
  */
 
 console.log('Loaded Page');
-console.log('jQuery', jQuery)
+// console.log('jQuery', jQuery)
 
 const $ul = $('#tweets');
-console.log("ul:", $ul);
 
 const $text = $('#tweet-text');
 

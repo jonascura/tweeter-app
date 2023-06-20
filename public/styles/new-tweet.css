@@ -42,3 +42,7 @@ button {
   font-size: 25px;
   color: #545149;
 }
+
+#counter.text-danger {
+  color: #d90429;
+}
