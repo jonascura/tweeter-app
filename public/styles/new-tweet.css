@@ -1,0 +1,37 @@
+button {
+  background-color: #4056A1;
+  font-family: "Bungee";
+  border: none;
+  color: white;
+  padding: 2px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
+
+#tweet-text {
+  resize: none;
+  background-color: #f4f1ec;
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-size: 20px;
+  color: #545149;
+  border: none;
+  height: 40%;
+  width: 100%;
+  border-bottom: 3px solid #545149;
+  margin-bottom: 10px;
+}
+
+.tweet-and-counter {
+  display:flex;
+  justify-content: space-between;
+
+}
+
+.counter {
+  font-family: "Bungee";
+  color: #545149;
+  font-size: 30px;
+}
