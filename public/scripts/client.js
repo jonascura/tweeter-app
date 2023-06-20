@@ -5,32 +5,60 @@
  */
 
 console.log('Loaded Page');
+console.log('jQuery', jQuery)
 
-const ul = document.querySelector('#tweets');
-console.log("ul:", ul);
+const $ul = $('#tweets');
+console.log("ul:", $ul);
 
-const text = document.querySelector('#tweet-text');
-console.log("text:", text);
+const $text = $('#tweet-text');
 
-const form = document.querySelector('form');
-console.log("form:", form);
+const $form = $('form');
 
-form.addEventListener('submit', (event) => {
+$form.on('submit', (event) => {
+
   event.preventDefault(); //don't submit
 
-  // read input from field
-  const tweet = text.value;
-  console.log(tweet);
+  const tweet = $text.val(); // with no arg will retrieve value of input
+                             // with arg, sets value of output
+  console.log(tweet)
 
-  // create new li element
-  const li = document.createElement('li');
+  const li = `<li>${tweet}</li>`;
 
-  // add text to li element
-  li.textContent = tweet;
+  $ul.append(li);
 
-  // glue li to existing ul element
-  ul.appendChild(li);
-
-  // clear out old value
-  text.value = null;
+  $text.val(null);
+  
 });
+
+
+///////////////////////////////////////////////////////////////////////////////
+// vanila js way
+///////////////////////////////////////////////////////////////////////////////
+// const ul = document.querySelector('#tweets');
+// console.log("ul:", ul);
+
+// const text = document.querySelector('#tweet-text');
+// console.log("text:", text);
+
+// const form = document.querySelector('form');
+// console.log("form:", form);
+
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault(); //don't submit
+
+//   // read input from field
+//   const tweet = text.value;
+//   console.log(tweet);
+
+//   // create new li element
+//   const li = document.createElement('li');
+
+//   // add text to li element
+//   li.textContent = tweet;
+
+//   // glue li to existing ul element
+//   ul.appendChild(li);
+
+//   // clear out old value
+//   text.value = null;
+// });
