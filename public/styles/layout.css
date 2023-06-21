@@ -20,6 +20,7 @@ body {
   font-size: 24px;
   font-family: "Source Sans 3";
   text-align: center;
+  justify-content: center;
 }
 
 /*
@@ -27,9 +28,9 @@ body {
  */
 
 main.container {
+  width: 90%;
   display: flex;
-  justify-content: center;
-  margin: 0 1.5em;
+  margin: auto;
   background-color: #f4f1ec;
   text-align: left;
  }
