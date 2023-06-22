@@ -28,25 +28,6 @@ $(document).ready(function() {
     }
   });
 
-
-  // below code referenced from: https://stackabuse.com/character-counter-for-text-areas-with-vanilla-javascript/
-  // let textArea = document.getElementById("tweet-text");
-  // let characterCounter = document.getElementById("counter");
-  // const maxNumOfChars = 140;
-  
-  // const countCharacters = () => {
-  //   let numOfEnteredChars = textArea.value.length;
-  //   let counter = maxNumOfChars - numOfEnteredChars;
-  //   characterCounter.textContent = counter;
-  //   if (counter > 0) {
-  //     characterCounter.style.color = "#545149;";
-  //   }
-  //   if (counter < 0) {
-  //     characterCounter.style.color = "red";
-  //   } 
-  // };
-  // textArea.addEventListener("input", countCharacters);
-
 });
 
 
