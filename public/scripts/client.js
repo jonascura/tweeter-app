@@ -16,27 +16,21 @@ const $form = $('form');
 
 // event listener
 $form.on('submit', (event) => {
-
-  event.preventDefault(); //don't submit
-  const tweet = $text.val(); // with no arg will retrieve value of input
-                             // with arg, sets value of output
-  console.log(tweet)
-
-  const li = `<li>${tweet}</li>`;
-
-  console.log("serial", $text.serialize());
-  $.post($text.serialize())
-
-  // $.ajax({
-  //   url: '',
-  //   type: 'GET'
-  // }).then(function(data) {
-  //   console.log("Ajax request", data);
-  // });
-
-  $ul.append(li);
-  $text.val(null);
   
+  if ($text.val().length > 0 && $text.val().length <= 140) {
+    event.preventDefault(); //don't submit
+    const tweet = $text.val(); // with no arg will retrieve value of input
+                               // with arg, sets value of output
+    console.log(tweet)
+    console.log("serial", $text.serialize());
+    $.post('http://localhost:8080/tweets', $text.serialize());
+    $text.val(null);
+    $('#counter') = 140;
+  } else {
+    event.preventDefault(); //don't submit
+    alert('Invalid Tweet')
+  }
+
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////
