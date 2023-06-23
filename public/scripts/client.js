@@ -19,13 +19,18 @@ $form.on('submit', (event) => {
   
   if ($text.val().length > 0 && $text.val().length <= 140) {
     event.preventDefault(); //don't submit
-    const tweet = $text.val(); // with no arg will retrieve value of input
-                               // with arg, sets value of output
+    const tweet = $text.val(); // with no arg will retrieve value of input. With arg, sets value of output
     console.log(tweet)
     console.log("serial", $text.serialize());
+
+    // post new-tweet to /tweets
     $.post('http://localhost:8080/tweets', $text.serialize());
+
+    // reset text-area and counter
     $text.val(null);
-    $('#counter') = 140;
+    $('#counter').val(140);
+
+    // loadTweets();
   } else {
     event.preventDefault(); //don't submit
     alert('Invalid Tweet')
@@ -51,10 +56,10 @@ const renderTweets = function(tweets) {
   // console.log("tweets is:", tweets)
   let $div = $(".tweets-container");
   // loops through tweets
-  for (let obj of tweets) { // grabs articles in data
+  for (let i = tweets.length - 1; i >= 0; i--) { // grabs articles in data from bottom to top
     // calls createTweetElement for each tweet
-    // console.log("obj:", obj)/
-    let tweetVal = createTweetElement(obj);
+    // console.log("obj:", tweets[i])
+    let tweetVal = createTweetElement(tweets[i]);
     // console.log("tweetVal:",tweetVal)
     // takes return value and appends it to the tweets container
     $div.append(tweetVal);
