@@ -81,7 +81,7 @@ const createTweetElement = function(tweet) {
       <div class="tweet-content">${tweet.content.text}</div>
         <div class="bottom">
           <div class="info">
-            <a id="tweet-age" href="#">${`10 days ago`}</a>
+            <a id="tweet-age" href="#">${timeago.format(tweet.created_at)}</a>
             <div class="icon-links">
               <i class="fa-solid fa-flag"></i>
               <i class="fa-solid fa-retweet"></i>
