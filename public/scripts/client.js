@@ -13,6 +13,7 @@ console.log('Loaded Page');
 const $ul = $('#tweets');
 const $text = $('#tweet-text');
 const $form = $('form');
+const $div = $(".tweets-container");
 
 // event listener
 $form.on('submit', (event) => {
@@ -24,7 +25,19 @@ $form.on('submit', (event) => {
     console.log("serial", $text.serialize());
 
     // post new-tweet to /tweets
-    $.post('http://localhost:8080/tweets', $text.serialize());
+    $.post('http://localhost:8080/tweets', $text.serialize(), function(data) {
+      console.log("POST:", data)
+    })
+    .then(() => {
+      // render new tweat
+      $.ajax('http://localhost:8080/tweets', { method: 'GET' })
+        .then(function (data) {
+          console.log("new get data", data)
+          console.log('GET new: ', data[data.length - 1]);
+          $div.prepend(createTweetElement(data[data.length - 1])); // appends to the top of the list
+        });
+    });
+
 
     // reset text-area and counter
     $text.val(null);
@@ -54,19 +67,19 @@ const loadTweets = () => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 const renderTweets = function(tweets) {
   // console.log("tweets is:", tweets)
-  let $div = $(".tweets-container");
   // loops through tweets
-  for (let i = tweets.length - 1; i >= 0; i--) { // grabs articles in data from bottom to top
+  for (let obj of tweets) { // grabs articles in data from bottom to top
     // calls createTweetElement for each tweet
-    // console.log("obj:", tweets[i])
-    let tweetVal = createTweetElement(tweets[i]);
+    // console.log("obj:", obj)
+    let tweetVal = createTweetElement(obj);
     // console.log("tweetVal:",tweetVal)
     // takes return value and appends it to the tweets container
-    $div.append(tweetVal);
+    $div.prepend(tweetVal); // appends to the top of the list
   }  
 }
 
 const createTweetElement = function(tweet) {
+  // console.log("tweet:", tweet)
   // take elements from data and create tweet article
   let $tweet = $(
     `<article class="tweet">
