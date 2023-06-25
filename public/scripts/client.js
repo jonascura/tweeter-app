@@ -14,6 +14,7 @@ const $ul = $('#tweets');
 const $text = $('#tweet-text');
 const $form = $('form');
 const $div = $(".tweets-container");
+const $alert = $('.alert');
 
 // event listener
 $form.on('submit', (event) => {
@@ -21,8 +22,8 @@ $form.on('submit', (event) => {
   if ($text.val().length > 0 && $text.val().length <= 140) {
     event.preventDefault(); //don't submit
     const tweet = $text.val(); // with no arg will retrieve value of input. With arg, sets value of output
-    console.log(tweet)
-    console.log("serial", $text.serialize());
+    // console.log(tweet)
+    // console.log("serial", $text.serialize());
 
     // post new-tweet to /tweets
     $.post('http://localhost:8080/tweets', $text.serialize(), function(data) {
@@ -38,15 +39,27 @@ $form.on('submit', (event) => {
         });
     });
 
+    // remove alert if alert is visible
+    $alert.remove();
+
 
     // reset text-area and counter
     $text.val(null);
     $('#counter').val(140);
-
     // loadTweets();
   } else {
     event.preventDefault(); //don't submit
-    alert('Invalid Tweet')
+    
+    // show alert
+    $alert.append(
+      `<div class="alert-box">
+        <div class="alert-container">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>Invalid Tweet</p>
+        </div>
+      </div>`
+    ).slideDown('slow');
+    
   }
 
 });
@@ -76,6 +89,7 @@ const renderTweets = function(tweets) {
     // takes return value and appends it to the tweets container
     $div.prepend(tweetVal); // appends to the top of the list
   }  
+  return $div.innerHTML;
 }
 
 const createTweetElement = function(tweet) {

@@ -50,3 +50,29 @@ button:hover {
 #counter.text-danger {
   color: #d90429;
 }
+
+.alert-box {
+  margin-top: 1.5em;
+  height: 50px;
+  border: #d90429 solid 4px;
+  display: flex;
+  align-items: center;
+}
+
+.alert-container {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.alert-container i {
+  padding-right: .5em;
+  color: #d90429;
+}
+
+.alert-container p {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-size: 18px;
+  color: #d90429;
+}

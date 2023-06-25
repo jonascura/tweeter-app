@@ -1,13 +1,12 @@
 $(document).ready(function() {
   // --- our code goes here ---
-
   console.log('jQuery', jQuery)
 
   // get elements from html
   let $textArea = $('#tweet-text');
-  console.log('$textArea:', $textArea)
+  // console.log('$textArea:', $textArea)
   let $charCounter = $('#counter');
-  console.log('charCounter:', $charCounter)
+  // console.log('charCounter:', $charCounter)
 
   const maxChar = 140;
 
@@ -22,6 +21,7 @@ $(document).ready(function() {
     if (counter < 0) {
       // add class if counter < 0
       $charCounter.addClass("text-danger");
+
     } else {
       // remove class so counter > 0 goes back to normal color
       $charCounter.removeClass("text-danger");
