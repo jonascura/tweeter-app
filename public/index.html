@@ -57,38 +57,38 @@
       </div>
     </nav>
     
-    <header>
-      <div class="icon">
-        <div class="container" >
-          <img class="resize-fit-center" src="/images/profile-hex.png">
+    <div class="page-container">  
+      <header>
+        <div class="icon">
+          <div class="header-container" >
+            <img class="resize-fit-center" src="/images/profile-hex.png">
+          </div>
+          <div class="name">
+            <h2><b>Jonas</b> Cura</h2>
+          </div>
+            
         </div>
-        <div class="name">
-          <h2><b>Jonas</b> Cura</h2>
-        </div>
-          
-      </div>
-  </header>
+      </header>
+  
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <div class='alert'></div>
+        <section class="new-tweet">
+          <!-- <h2>Compose Tweet</h2> -->
+          <form>
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text" cols="140"></textarea>
+            <div class="tweet-and-counter">
+              <button type="submit">Tweet</button>
+              <output name="counter" id="counter" for="tweet-text">140</output>
+            </div> 
+          </form>
+          <div class="tweets-container">
+          </div>
+          <ul id="tweets"></ul>
+        </section>
+      </main>
+    </div>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <div class='alert'></div>
-      <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
-        <form>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" cols="140"></textarea>
-          <div class="tweet-and-counter">
-            <button type="submit">Tweet</button>
-            <output name="counter" id="counter" for="tweet-text">140</output>
-          </div> 
-        </form>
-
-        <div class="tweets-container">
-        </div>
-
-        <ul id="tweets"></ul>
-
-      </section>
-    </main>
   </body>
 </html>

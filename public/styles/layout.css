@@ -18,14 +18,17 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: "Source Sans 3";
-  text-align: center;
-  justify-content: center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+body {
+  font-family: "Source Sans 3";
+  text-align: center;
+  justify-content: center;
+}
 
 main.container {
   width: 90%;
@@ -34,4 +37,21 @@ main.container {
   margin: auto;
   background-color: #f4f1ec;
   text-align: left;
+ }
+
+ @media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+
+  .page-container {
+    width: 100%;
+    margin-top: 6em;
+    display: flex;
+  }
+
+  main.container {
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+  }
  }
